@@ -4,9 +4,9 @@ This document explains how to install FOSSology from source code. Please refer t
 
 FOSSology (https://www.fossology.org/) には、  
   
-(1)Dockerを使う  
-(2)VagrantとVirtualBoxを使う  
-(3)ソースコードからインストールする  
+- Dockerを使う
+- VagrantとVirtualBoxを使う
+- ソースコードからインストールする
   
 の3つの主なインストール方法がある。この文書は、これらのうちソースコードからインストールする方法について、その手順を示すことを目的とする。
 
@@ -26,9 +26,9 @@ FOSSology (https://www.fossology.org/) には、
 この文書に記載の内容は、以下の環境で動作テストした。
 
 
-|Item |Description |
-|--- | --- |
-|OS |Debian GNU/Linux 9.6 (stretch) <br> Ubuntu 18.04.1 LTS (Bionic Beaver)|
+|Item|Description|
+|---|---|
+|OS |Debian GNU/Linux 9.6 (stretch) <br> Debian GNU/Linux 10 (buster) <br>Ubuntu 18.04.1 LTS (Bionic Beaver)|
 |Network |Broadband access to the Internet|
 |CPU |Intel(R) Core(TM) i3-3220T CPU @ 2.80GHz|
 |RAM |4GB|
@@ -115,9 +115,9 @@ autovacuum = on
 
 ```
 max_execution_time = 300
-memory_limit = 512M
-post_max_size = 2048M
-upload_max_filesize = 2048M
+memory_limit = 702M
+post_max_size = 701M
+upload_max_filesize = 700M
 ```
 
 ### 5.3 Apache の設定
@@ -156,8 +156,8 @@ $ sudo ./fo_scheduler -t
 
 Webブラウザから http://IP_ADDRESS/repo/ にアクセスしてユーザ名 fossy / パスワード fossy でログインし、以下を実施する。
 
-(1) 自分用のユーザアカウントを、管理者権限ありで作成する。  
-(2) ユーザ fossy のパスワードを変更する。  
+- 自分用のユーザアカウントを、管理者権限ありで作成する。  
+- ユーザ fossy のパスワードを変更する。  
 
 ## 7. FOSSologyスケジューラの起動
 
@@ -165,17 +165,19 @@ Webブラウザから http://IP_ADDRESS/repo/ にアクセスしてユーザ名 
 ```
 $ sudo /etc/init.d/fossology start
 ```
-システムの起動時に自動的に起動させるための設定には、Debian の場合、insserv コマンドを使う。insservをインストールし、コマンドを実行する。
+システムの起動時に自動的に起動させるための設定には、Debian 9の場合、insserv コマンドを使う。insservをインストールし、コマンドを実行する。
 ```
 $ sudo apt install insserv
 ```
 ```
 $ sudo insserv fossology
 ```
-Ubuntu の場合は、systemctl コマンドを使う。
+Debian 10とUbuntu の場合は、systemctl コマンドを使う。
 ```
 $ sudo systemctl enable fossology
 ```
 最後にシステム全体を再起動して、FOSSologyが立ち上がることを確認する。
 
-以上
+---
+OpenChain Japan WG - This document is licensed under Creative Commons CC0 1.0 Universal.
+
